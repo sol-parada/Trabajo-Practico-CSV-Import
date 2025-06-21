@@ -127,7 +127,7 @@ Las dependencias se restauran automáticamente con `dotnet restore`.
 
 ---
 
-## Notas para el docente
+## Notas extra
 
 - El código está documentado y modularizado en carpetas por responsabilidad.
 - El proceso de importación es asincrónico y eficiente (usa Stopwatch para medir el tiempo).
