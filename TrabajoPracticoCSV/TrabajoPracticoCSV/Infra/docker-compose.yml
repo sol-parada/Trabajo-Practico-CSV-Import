@@ -1,0 +1,41 @@
+version: "3.9"
+services:
+  db:
+    image: postgres:16.9-bullseye
+    container_name: tp-postgres
+    restart: unless-stopped
+    ports:
+      - "${POSTGRES_PORT}:5432"
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - db_data_tp:/var/lib/postgresql/data
+    networks:
+      - tpnet
+
+  app:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    container_name: tp-app
+    depends_on:
+      - db
+    environment:
+      POSTGRES_PORT: ${POSTGRES_PORT}
+      POSTGRES_DB: ${POSTGRES_DB}
+      POSTGRES_USER: ${POSTGRES_USER}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+    volumes:
+      - ../Data:/app/Data
+      - ../appsettings.json:/app/appsettings.json
+    networks:
+      - tpnet
+
+volumes:
+  db_data_tp:
+
+networks:
+  tpnet:
+    driver: bridge
