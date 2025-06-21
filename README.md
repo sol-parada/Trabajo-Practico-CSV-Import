@@ -47,20 +47,9 @@ Trabajo-Practico-CSV-Import/
    cd Trabajo-Practico-CSV-Import
    ```
 
-2. **Configura la base de datos y las variables de entorno:**
-
-   Crea un archivo `.env` en la carpeta `Infra/` con el siguiente contenido (ajustando los valores según corresponda):
-
-   ```
-   POSTGRES_PORT=5432
-   POSTGRES_DB=DEV_SYSACAD
-   POSTGRES_USER=tu_usuario
-   POSTGRES_PASSWORD=tu_contraseña
-   ```
-
    Asegúrate también de que el archivo `appsettings.json` tenga la cadena de conexión adecuada usando las variables de entorno.
 
-3. **Coloca tu archivo CSV en la ruta especificada en `appsettings.json`:**
+2. **Coloca tu archivo CSV en la ruta especificada en `appsettings.json`:**
 
    ```json
    {
@@ -71,14 +60,14 @@ Trabajo-Practico-CSV-Import/
    }
    ```
 
-4. **Restaura los paquetes y compila el proyecto:**
+3. **Restaura los paquetes y compila el proyecto:**
 
    ```bash
    dotnet restore
    dotnet build
    ```
 
-5. **Ejecuta la importación:**
+4. **Ejecuta la importación:**
 
    ```bash
    dotnet run --project TrabajoPracticoCSV/TrabajoPracticoCSV
@@ -86,13 +75,7 @@ Trabajo-Practico-CSV-Import/
 
    El programa mostrará el progreso y la cantidad de registros importados.
 
-## Ejemplo de uso
 
-Al ejecutar el programa, se validará la ruta del CSV y se iniciará la importación por lotes. El resultado será similar a:
-
-```
-Importación completada en 45.20 segundos.
-Registros importados: 2500000
 ```
 
 ## Modelo de datos (`alumnos`)
@@ -108,9 +91,6 @@ La clase `Alumno` corresponde a la estructura de cada registro en el CSV y en la
 - **nro_legajo**: int
 - **fecha_ingreso**: DateTime
 
-## Contribución
-
-Las contribuciones son bienvenidas. Por favor, abre un *issue* o *pull request* para sugerencias o mejoras.
 
 ## Autor
 
