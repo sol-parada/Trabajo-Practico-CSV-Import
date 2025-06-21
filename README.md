@@ -140,5 +140,3 @@ Las dependencias se restauran automáticamente con `dotnet restore`.
 Sol Parada
 
 ---
-
-¡Listo para corregir! Ante cualquier consulta, estoy a disposición.
